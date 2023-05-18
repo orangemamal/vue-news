@@ -1,17 +1,22 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import getters from './getters.js';
 import mutations from './mutations.js';
 import actions from './actions.js';
 
 Vue.use(Vuex);
 
-export const store = new Vuex.Store ({
+export default new Vuex.Store({
+  strict: process.env.NODE_ENV !== 'production',
   state: {
-    // FETCH_NEWS라는 호출한 데이터가 빈배열에 담기게 된다.
+    news: [],
+    ask: [],
+    jobs: [],
     user: {},
     item: {},
     list: [],
   },
+  getters,
   mutations,
   actions,
 })
